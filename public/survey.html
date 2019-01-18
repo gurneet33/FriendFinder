@@ -169,7 +169,29 @@
                 https://www.16personalities.com/free-personality-test
             </div> -->
         </form>
+        <button class="btn btn-info btn-lg" id="submit-button">SUBMIT</button><br>
     </div>
 </body>
+<script>
+    $("#submit-button").on("click", function () {
+        var details = {
+            name: $("#name").val().trim(),
+            photo: $("photolink"),
+            scores: [$("#q1"), $("#q2"), $("#q3"), $("#q4"), $("#q5"), ]
+        };
+        console.log(details);
+
+        $.post("/api/friends", details, function (data) {
+            if (data) {
+                alert("working")
+            } else {
+                alert("nops")
+            }
+            $("#name").val(""),
+                $("photolink").val("")
+        })
+
+    })
+</script>
 
 </html>
