@@ -9,6 +9,11 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
+
+app.post("/addF", function (req, res) {
+    res.json(req.body)
+    // res.send("somewhere")
+})
 // var friends = [{
 //         "name": "Selena",
 //         "photo": "https://www.wonderslist.com/wp-content/uploads/2017/01/Selena-Gomez-Hair-2017-Wallpaper.jpg",
