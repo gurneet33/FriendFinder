@@ -11,6 +11,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 app.post("/addF", function (req, res) {
+    
     res.json(req.body)
     // res.send("somewhere")
 })

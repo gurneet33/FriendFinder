@@ -167,31 +167,39 @@
                 </select>
                 https://www.16personalities.com/free-personality-test
             </div> -->
-        <button class="btn btn-info btn-lg" id="submit-button">SUBMIT</button><br>
+        <button class="btn btn-info btn-lg submit-button">SUBMIT</button><br>
         </form>
 
     </div>
 </body>
 <script>
-    $("#submit-button").on("click", function () {
+    $(".submit-button").on("click", function (event) {
+        event.preventDefault();
         var details = {
             name: $("#name").val().trim(),
-            photo: $("photolink"),
-            scores: $("#q1")
+            photo: $("#photoLink").val().trim(),
+            scores: [
+                $("#q1").val().trim(),
+                $("#q2").val().trim(),
+                $("#q3").val().trim(),
+                $("#q4").val().trim(),
+                $("#q5").val().trim()
+            ]
         };
-        // , $("#q2"), $("#q3"), $("#q4"), $("#q5")]
-        alert("there");
-        console.log(details);
 
-        $.post("/api/friends", details, function (data) {
-            alert("post and j link")
+
+        console.log(details)
+        // console.log(details[0].name);
+
+        $.post("/api/friends", details).then(function (data) {
+            //console.log("post and j link", data)
             if (data) {
-                alert("working")
+                console.log("working")
             } else {
-                alert("nops")
+                console.log("nops")
             }
-            $("#name").val(""),
-                $("photolink").val("")
+            // $("#name").val(""),
+            //     $("#photoLink").val("")
         })
 
     });
