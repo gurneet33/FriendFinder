@@ -10,6 +10,6 @@ module.exports = function (app) {
         friendsData.push(req.body)
 
         res.json(friendsData)
-        // res.redirect("/api/friends")
+        
     })
 };
