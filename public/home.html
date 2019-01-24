@@ -24,35 +24,10 @@
             <a href="/survey"> <button class="btn btn-info btn-lg"><span class="fa fa-list-alt"></span> Go
                     To
                     Survey</button></a>
-
         </div>
+        <a href="/api/friends" style="color:blue;border-right:2px solid gray;padding-right:2%;">API Link</a>
+        <a href="https://github.com/gurneet33/FriendFinder" style="color:blue;padding-left:2%;">GitHub Repo</a>
     </div>
-
-    <script type="text/javascript">
-        $("#search-btn").on("click", function () {
-            var searchedCharacter = $("#character-search").val().trim();
-
-            // Using a RegEx Pattern to remove spaces from searchedCharacter
-
-            searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-            // QUESTION: What does $.get do? What are the parameters it is expecting?
-            $.get("/api/characters/" + searchedCharacter, function (data) {
-                console.log(data);
-                if (data) {
-                    $("#stats").show();
-                    $("#name").text(data.name);
-                    $("#role").text(data.role);
-                    $("#age").text(data.age);
-                    $("#force-points").text(data.forcePoints);
-                } else {
-                    $("#name").text(
-                        "The force is not strong with this one. Your character was not found.");
-                    $("#stats").hide();
-                }
-            });
-        });
-    </script>
 
 </body>
 

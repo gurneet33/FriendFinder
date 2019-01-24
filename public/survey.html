@@ -102,9 +102,13 @@
             </select>
         </div><br>
         <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-info btn-lg submit-button">SUBMIT</button><br>
-
         </form>
+        <div class="container" style="padding:2% 0%;">
+            <a href="/api/friends" style="color:blue;border-right:2px solid gray;padding-right:2%;">API Link</a>
+            <a href="https://github.com/gurneet33/FriendFinder" style="color:blue;padding-left:2%;">GitHub Repo</a>
+        </div>
     </div>
+
 
     <!-- Button trigger modal -->
 
@@ -140,12 +144,6 @@
                 $("#q5").val().trim()
             ]
         };
-
-
-
-
-
-
 
 
         $.post("/api/friends", details).then(function (data) {
